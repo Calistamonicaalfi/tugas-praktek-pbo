@@ -1,5 +1,5 @@
 
-package calista_300524.model;
+package Calista02.model;
 
 
 public class Mahasiswa 
@@ -8,18 +8,18 @@ public class Mahasiswa
     private String nama;
     private String alamat;
     private String jenisKelamin;
-    private String tglalhir;
+    private String tgllahir;
     
     public Mahasiswa()
     { 
     }
 
-    public Mahasiswa(String nobp, String nama, String alamat, String jenisKelamin, String tglalhir) {
+    public Mahasiswa(String nobp, String nama, String alamat, String jenisKelamin, String tgllahir) {
         this.nobp = nobp;
         this.nama = nama;
         this.alamat = alamat;
         this.jenisKelamin = jenisKelamin;
-        this.tglalhir = tglalhir;
+        this.tgllahir = tgllahir;
     }
 
     
@@ -57,10 +57,10 @@ public class Mahasiswa
     }
 
     public String getTglalhir() {
-        return tglalhir;
+        return tgllahir;
     }
 
     public void setTglalhir(String tglalhir) {
-        this.tglalhir = tglalhir;
+        this.tgllahir = tgllahir;
     }
 }

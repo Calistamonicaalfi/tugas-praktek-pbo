@@ -1,7 +1,8 @@
 
 package Calista02.view;
 
-import Calista02.controller.MahasiswaController;
+
+import Calista02.controller.MahasiswaControllerDb;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -10,15 +11,15 @@ import javax.swing.JTextField;
  *
  * @author Lab-J2-01
  */
-public class FormMahasiswa extends javax.swing.JFrame {
+public class FormMahasiswaDb extends javax.swing.JFrame {
 
     /**
      * Creates new form FormMahasiswa
      */
-    MahasiswaController controler;
-    public FormMahasiswa() {
+    private final MahasiswaControllerDb controler;
+    public FormMahasiswaDb() {
         initComponents();
-        controler = new MahasiswaController(this);
+        controler = new MahasiswaControllerDb(this);
         controler.cancel();
         controler.viewData();
     }
@@ -32,7 +33,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
     }
 
     public JTextField getTxtNOBP() {
-        return txtNOBP;
+        return txtNobp;
     }
 
     public JTextField getTxtNama() {
@@ -43,8 +44,8 @@ public class FormMahasiswa extends javax.swing.JFrame {
         return txtTgl;
     }
 
-    public JTable getTabelMahasiswa() {
-        return tabelMahasiswa;
+    public JTable getTabelMahasiswaDb() {
+        return TabelMahasiswaDb;
     }
 
     
@@ -63,7 +64,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         Lalamat = new javax.swing.JLabel();
         ljekel = new javax.swing.JLabel();
         ltgllahir = new javax.swing.JLabel();
-        txtNOBP = new javax.swing.JTextField();
+        txtNobp = new javax.swing.JTextField();
         txtNama = new javax.swing.JTextField();
         txtAlamat = new javax.swing.JTextField();
         cboJenisKelamin = new javax.swing.JComboBox<>();
@@ -74,7 +75,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         txtTgl = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelMahasiswa = new javax.swing.JTable();
+        TabelMahasiswaDb = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 51));
@@ -100,14 +101,14 @@ public class FormMahasiswa extends javax.swing.JFrame {
         getContentPane().add(ltgllahir);
         ltgllahir.setBounds(20, 140, 80, 16);
 
-        txtNOBP.setText("NOBP");
-        txtNOBP.addActionListener(new java.awt.event.ActionListener() {
+        txtNobp.setText("NOBP");
+        txtNobp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNOBPActionPerformed(evt);
+                txtNobpActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNOBP);
-        txtNOBP.setBounds(120, 20, 320, 22);
+        getContentPane().add(txtNobp);
+        txtNobp.setBounds(120, 20, 320, 22);
 
         txtNama.setText("Nama");
         getContentPane().add(txtNama);
@@ -136,6 +137,11 @@ public class FormMahasiswa extends javax.swing.JFrame {
         btnInsert.setBounds(20, 190, 70, 23);
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnUpdate);
         btnUpdate.setBounds(110, 190, 70, 23);
 
@@ -170,7 +176,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         getContentPane().add(txtTgl);
         txtTgl.setBounds(120, 140, 320, 22);
 
-        tabelMahasiswa.setModel(new javax.swing.table.DefaultTableModel(
+        TabelMahasiswaDb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -186,12 +192,12 @@ public class FormMahasiswa extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tabelMahasiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+        TabelMahasiswaDb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelMahasiswaMouseClicked(evt);
+                TabelMahasiswaDbMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tabelMahasiswa);
+        jScrollPane1.setViewportView(TabelMahasiswaDb);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(10, 232, 452, 230);
@@ -200,16 +206,16 @@ public class FormMahasiswa extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNOBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNOBPActionPerformed
+    private void txtNobpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNobpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNOBPActionPerformed
+    }//GEN-LAST:event_txtNobpActionPerformed
 
     private void cboJenisKelaminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboJenisKelaminActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cboJenisKelaminActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        
+        controler.cancel();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -222,17 +228,22 @@ public class FormMahasiswa extends javax.swing.JFrame {
         controler.cancel();
     }//GEN-LAST:event_btnInsertActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void TabelMahasiswaDbMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelMahasiswaDbMouseClicked
         // TODO add your handling code here:
+        controler.actionClickTabel();
+    }//GEN-LAST:event_TabelMahasiswaDbMouseClicked
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        controler.update();
+        controler.viewData();
+        controler.cancel();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         controler.delete();
         controler.viewData();
         controler.cancel();
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void tabelMahasiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMahasiswaMouseClicked
-        // TODO add your handling code here:
-        controler.getMahasiswa();
-    }//GEN-LAST:event_tabelMahasiswaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -251,20 +262,21 @@ public class FormMahasiswa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswaDb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswaDb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswaDb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormMahasiswaDb.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormMahasiswa().setVisible(true);
+                new FormMahasiswaDb().setVisible(true);
             }
         });
     }
@@ -272,6 +284,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Lalamat;
     private javax.swing.JLabel Lnobp;
+    private javax.swing.JTable TabelMahasiswaDb;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
@@ -282,14 +295,10 @@ public class FormMahasiswa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel ljekel;
     private javax.swing.JLabel ltgllahir;
-    private javax.swing.JTable tabelMahasiswa;
     private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtNOBP;
     private javax.swing.JTextField txtNama;
+    private javax.swing.JTextField txtNobp;
     private javax.swing.JTextField txtTgl;
     // End of variables declaration//GEN-END:variables
 
-    public Object getTxtTanggalLahir() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 }

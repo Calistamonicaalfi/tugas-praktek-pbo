@@ -1,7 +1,7 @@
 
-package calista_300524.view;
+package Calista02.model;
 
-import calista_300524.model.Mahasiswa;
+import Calista02.model.Mahasiswa;
 import java.util.ArrayList;
 import java.util.List;
 
