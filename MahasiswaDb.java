@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class MahasiswaDb {
     
