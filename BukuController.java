@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class BukuController {
     FormBuku formBuku;
