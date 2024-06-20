@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Lab-J2-01
+ * @author Calista
  */
 public class MahasiswaControllerDb {
     FormMahasiswaDb formMahasiswaDb;
