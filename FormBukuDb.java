@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class FormBukuDb extends javax.swing.JFrame {
 
