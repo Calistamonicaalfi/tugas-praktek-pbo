@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class DBHelper {
         private String url = "jdbc:mysql://localhost/dbmahasiswa";
