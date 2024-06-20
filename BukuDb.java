@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class BukuDb {
     public void insert (Buku buku) throws Exception {
