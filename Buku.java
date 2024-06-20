@@ -6,7 +6,7 @@ package Calista02.model;
 
 /**
  *
- * @author salti
+ * @author Calista
  */
 public class Buku {
     private String kodebuku;
